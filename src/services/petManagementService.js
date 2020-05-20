@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl } from "./config.json";
+import { apiUrl, apiTimeout } from "./config.json";
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
@@ -16,11 +16,11 @@ axios.interceptors.response.use(null, (error) => {
 const responseBody = (response) => response.data;
 
 const requests = {
-  get: (url) => axios.get(url).then(responseBody),
+  get: (url, timeout) => axios.get(url, { timeout }).then(responseBody),
 };
 
 const PetData = {
-  list: () => requests.get(apiUrl),
+  list: () => requests.get(apiUrl, apiTimeout),
 };
 
 export default {
