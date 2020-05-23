@@ -1,6 +1,8 @@
 import axios from "axios";
 import { apiUrl, apiTimeout } from "./config.json";
 
+axios.defaults.baseURL = apiUrl;
+
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
     error.response &&
@@ -20,7 +22,7 @@ const requests = {
 };
 
 const PetData = {
-  list: () => requests.get(apiUrl, apiTimeout),
+  list: () => requests.get("/people.json", apiTimeout),
 };
 
 export default {

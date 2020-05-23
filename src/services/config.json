@@ -1,4 +1,4 @@
 {
-  "apiUrl": "http://agl-developer-test.azurewebsites.net/people.json",
+  "apiUrl": "http://agl-developer-test.azurewebsites.net",
   "apiTimeout": 3000
 }
